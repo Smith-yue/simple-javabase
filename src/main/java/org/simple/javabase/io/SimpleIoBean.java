@@ -12,7 +12,7 @@ public class SimpleIoBean extends SimpleIoBaseBean implements Serializable {
 	private long uid;
 
 	private String name;
-
+	
 	private transient String password;
 
 	public long getUid() {

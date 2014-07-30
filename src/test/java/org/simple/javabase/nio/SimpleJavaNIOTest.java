@@ -12,7 +12,7 @@ import org.junit.Test;
 public class SimpleJavaNIOTest {
 
 	@Test
-	public void testChannel() {
+	public void testReadWithFileChannel() {
 
 		try {
 			RandomAccessFile aFile = new RandomAccessFile("D:\\nio-data.txt",
@@ -20,9 +20,7 @@ public class SimpleJavaNIOTest {
 
 			FileChannel inChannel = aFile.getChannel();
 
-			ByteBuffer buf = ByteBuffer.allocate(10);
-
-			// CharBuffer buf=CharBuffer.allocate(10);
+			ByteBuffer buf = ByteBuffer.allocate(16);
 
 			int bytesRead = inChannel.read(buf);
 			while (bytesRead != -1) {
@@ -105,6 +103,7 @@ public class SimpleJavaNIOTest {
 
 	}
 
+	@Test
 	public void testPipe() {
 		try {
 			String demo = "hello";
