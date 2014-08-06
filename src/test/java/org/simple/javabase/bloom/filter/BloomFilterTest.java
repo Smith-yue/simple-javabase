@@ -11,7 +11,14 @@ import org.junit.Test;
 import com.google.common.hash.BloomFilter;
 import com.google.common.hash.Funnel;
 import com.google.common.hash.PrimitiveSink;
-
+/**
+ * 布隆过滤器
+ * 用于数据字典和一定容错率的查找场景，是一种节省空间的方法，包括一个位数组和多个独立的hash函数，
+ * 插入时：通过K个哈希函数将value映射为k个值g，然后将位数组中已g为index的相应位置1
+ * 查找时：通过K个哈希函数得到k个值g',然后判断位数组以'为index的相应位置是否都为1，若全为1，则存在，否则不存在 
+ * @author shiya
+ *
+ */
 public class BloomFilterTest {
 	private BloomFilter<BigInteger> bloomFilter;
 	private Random random;
@@ -44,7 +51,7 @@ public class BloomFilterTest {
 //		assertThat(falsePositiveCount < 5, is(true));
 	}
 
-	@Test
+	@Test 
 	public void testMayContainGoOverInsertions() {
 		setUpBloomFilter(50);
 		int falsePositiveCount = 0;

@@ -42,28 +42,6 @@ public class SimpleJavaNIOTest {
 			e.printStackTrace();
 		}
 	}
-
-	@Test
-	public void testCopyFileWithChannel() {
-
-		try {
-			RandomAccessFile fromFile = new RandomAccessFile(
-					"D:\\nio-data.txt", "rw");
-			FileChannel inChannel = fromFile.getChannel();
-
-			RandomAccessFile toFile = new RandomAccessFile(
-					"D:\\nio-data-des.txt", "rw");
-			FileChannel toChannel = toFile.getChannel();
-			toChannel.transferFrom(inChannel, 0, inChannel.size());
-			// inChannel.transferTo(0, inChannel.size(), toChannel);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-	}
-
 	@Test
 	public void testWriteWithFileChannel() {
 		try {
@@ -88,6 +66,27 @@ public class SimpleJavaNIOTest {
 	}
 
 	@Test
+	public void testCopyFileWithChannel() {
+
+		try {
+			RandomAccessFile fromFile = new RandomAccessFile(
+					"D:\\nio-data.txt", "rw");
+			FileChannel inChannel = fromFile.getChannel();
+
+			RandomAccessFile toFile = new RandomAccessFile(
+					"D:\\nio-data-des.txt", "rw");
+			FileChannel toChannel = toFile.getChannel();
+			toChannel.transferFrom(inChannel, 0, inChannel.size());
+			// inChannel.transferTo(0, inChannel.size(), toChannel);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@Test
 	public void testTruncateWithChannel() {
 
 		try {
@@ -102,7 +101,7 @@ public class SimpleJavaNIOTest {
 		}
 
 	}
-
+	
 	@Test
 	public void testPipe() {
 		try {

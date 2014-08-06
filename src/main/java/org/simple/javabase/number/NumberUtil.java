@@ -185,7 +185,7 @@ public class NumberUtil {
 		// NumberUtil.check(1);
 		// NumberUtil.check2(6);
 		// int a[] = { 0, -2, 3, 5, -1, 2 };
-		int a[] = { 9, 2, 3, 5, 3 };
+		int a[] = { 9, -2, 3, 5, 3 };
 		NumberUtil.findMaxChildArray3(a);
 	}
 
